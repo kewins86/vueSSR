@@ -11,6 +11,7 @@ export function createStore() {
 			add (state) {
 				state.count +=1
 			}
-		}
+		},
+		strict: process.env.NODE_ENV !== 'production' // 线上环境关闭store检查
 	})
 }

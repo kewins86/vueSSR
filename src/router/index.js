@@ -10,6 +10,7 @@ Vue.use(Router)
 export function createRouter() {
 	return new Router ({
 		mode: 'history',
+		fallback: false,
 		routes: [
 			{path: '/', component: Index},
 			{path: '/detail', component: Detail},
