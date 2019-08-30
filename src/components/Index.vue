@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div>index</div>
+        <div>index page</div>
         <p>num: {{$store.state.count}}</p>
         <button @click="$store.commit('add')" >add</button>
     </div>
