@@ -12,17 +12,12 @@ const renderer = createBundleRenderer(bundle, {
 	clientManifest: clientManifest
 })
 function renderToString (context) {
-	console.log('1',context);
 	return new Promise((resolve, reject) => {
-		console.log('2',resolve);
 		renderer.renderToString(context,(err,html) => {
-			console.log('3',html);
 			if (err) {
-				console.log('4',error);
 				reject(err)
 				return
 			}
-			console.log('5',context);
 			resolve(html)
 		})
 	})
@@ -30,18 +25,14 @@ function renderToString (context) {
 app.use(express.static('../dist/client', {index: false}))
 // 服务端路由声明
 app.get('*', async function (req,res) {
-	console.log('6');
 	try {
 		const context = {
 			title: 'ssr text',
 			url: req.url,
 		}
-		console.log('7',context);
 		const html = await renderToString(context)
-		console.log('8', html);
 		res.send(html)
 	} catch (error) {
-		console.log('9', error);
 		res.status(500).send('Internal Server Error')
 	}
 })
